@@ -2,4 +2,39 @@
 
 * Introductoin
 
-Some scripts for the GIMP image editor.
+Some scripts for the GIMP image editor, mostly very simple.
+
+Clone this repo inside the GIMP scripts folder and it should be discovered on
+startup. To find the location of the scripts folder, start up GIMP and go to:
+
+: Edit-->Preferences-->Folders-->Scripts
+
+* Running Scripts in Batch Mode
+
+EXAMPLE: scale all .jpg files in dir to 0.2 of original size
+#+BEGIN_SRC shell
+gimp -i -d -f -b '(bs-batch-scale-image "*.jpg" 0.2)' -b '(gimp-quit 0)'
+
+# OPTIONS USED:
+# -i = --no-interface = do not use GUI
+# -d = --no-data      = do not load patterns, gradients, palettes etc
+# -f = --no-fonts     = do not load fonts
+# -b = --batch        = execute following command non-interactively
+#+END_SRC
+
+* Batch Scripts
+** bs-batch-scale-image
+
+Scales images by fractional amount, e.g. 0.5.
+
+*WARNING: overwrites original file!*
+
+Use it like this:
+
+: gimp -i -d -f -b '(bs-batch-scale-image "*.jpg" 0.2)' -b '(gimp-quit 0)'
+
+* Interactive Scripts
+** bs-scale-image
+
+Scales image by the given amount.
+
