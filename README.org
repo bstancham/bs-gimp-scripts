@@ -1,0 +1,5 @@
+#+TITLE: GIMP Scripts
+
+* Introductoin
+
+Some scripts for the GIMP image editor.
